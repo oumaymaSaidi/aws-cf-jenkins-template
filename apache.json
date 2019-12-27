@@ -132,6 +132,9 @@
         "PV64": "ami-d514f291",
         "HVM64": "ami-d114f295",
         "HVMG2": "ami-f31ffeb7"
+      },
+      "eu-west-1": {
+        "HVM64": "ami-031de832435c04744"
       }
 
     }
