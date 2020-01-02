@@ -1,91 +1,11 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Stack for alerts via SNS.",
-  "Parameters": {
-    "Email": {
-      "Description": "Email address that will receive alerts.",
-      "Type": "String",
-      "Default": ""
-    }
-  },
-  "Conditions": {
-    "HasEmail": null
-  },
   "Resources": {
     "Topic": {
       "Type": "AWS::SNS::Topic",
-      "Properties": {}
-    },
-    "TopicPolicy": {
-      "Type": "AWS::SNS::TopicPolicy",
       "Properties": {
-        "PolicyDocument": {
-          "Id": "id1",
-          "Version": "2008-10-17",
-          "Statement": [
-            {
-              "Sid": "sid1",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": [
-                  "events.amazonaws.com",
-                  "budgets.amazonaws.com"
-                ]
-              },
-              "Action": "sns:Publish",
-              "Resource": null
-            },
-            {
-              "Sid": "sid2",
-              "Effect": "Allow",
-              "Principal": {
-                "AWS": "*"
-              },
-              "Action": "sns:Publish",
-              "Resource": null,
-              "Condition": {
-                "StringEquals": {
-                  "AWS:SourceOwner": null
-                }
-              }
-            },
-            {
-              "Sid": "Sid3",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "ses.amazonaws.com"
-              },
-              "Action": "sns:Publish",
-              "Resource": null,
-              "Condition": {
-                "StringEquals": {
-                  "AWS:Referer": null
-                }
-              }
-            }
-          ]
-        },
-        "Topics": [
-          null
-        ]
-      }
-    },
-    "EmailSubscription": {
-      "Condition": "HasEmail",
-      "Type": "AWS::SNS::Subscription",
-      "Properties": {
-        "Endpoint": null,
-        "Protocol": "email",
-        "TopicArn": null
-      }
-    }
-  },
-  "Outputs": {
-    "TopicArn": {
-      "Description": "The ARN of the alert topic.",
-      "Value": null,
-      "Export": {
-        "Name": null
+        "TopicName": "snsJenkins"
       }
     }
   }
