@@ -1,5 +1,8 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": [
+    "AWS::Serverless-2016-10-31"
+  ],
   "Description": "AWS CloudFormation Template VPC_Single_Instance_In_Subnet_with_Apache",
   "Resources": {
     "myS3BucketJenkins": {
