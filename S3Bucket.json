@@ -7,6 +7,12 @@
       "Properties": {
         "TopicName": "snsJenkins"
       }
+    },
+    "S3BucketJenkins": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "bucket-jenkins"
+      }
     }
   }
 }
